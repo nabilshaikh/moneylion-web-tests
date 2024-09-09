@@ -1,10 +1,14 @@
-const { defineConfig } = require("cypress");
-const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
-const browserify = require ("@badeball/cypress-cucumber-preprocessor/browserify");
+/* eslint-disable no-dupe-keys */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+const { defineConfig } = require('cypress');
+const preprocessor = require('@badeball/cypress-cucumber-preprocessor');
+const browserify = require('@badeball/cypress-cucumber-preprocessor/browserify');
 
 async function setupNodeEvents(on, config) {
   await preprocessor.addCucumberPreprocessorPlugin(on, config);
-  on("file:preprocessor", browserify.default(config));
+  on('file:preprocessor', browserify.default(config));
   return config;
 }
 
@@ -14,6 +18,6 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     setupNodeEvents,
-    specPattern: "cypress/e2e/**/*.{feature,cy.js}"
+    specPattern: 'cypress/e2e/**/*.{feature,cy.js}',
   },
 });
