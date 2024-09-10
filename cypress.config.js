@@ -19,5 +19,12 @@ module.exports = defineConfig({
     },
     setupNodeEvents,
     specPattern: 'cypress/e2e/**/*.{feature,cy.js}',
+    baseUrl: 'https://google.com',
+    chromeWebSecurity: false,
+    pageLoadTimeout: 20000,
+    defaultCommandTimeout: 10000,
+    video: false,
+    viewportWidth: 1280,
+    viewportHeight: 800,
   },
 });
