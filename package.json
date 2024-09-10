@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "lint": "eslint --fix --ext .js,.vue,.ts --ignore-path .gitignore ."
   },
   "author": "nabil",
   "license": "ISC",
@@ -28,6 +30,7 @@
     "eslint-plugin-react-hooks": "^4.0.0"
   },
   "cypress-cucumber-preprocessor": {
-    "stepDefinitions": "cypress/e2e/ui/step-definitions/*.{js,ts}"
+    "stepDefinitions": "cypress/e2e/ui/step-definitions/*.{js,ts}",
+    "nonGlobalStepDefinitions": true
   }
 }
