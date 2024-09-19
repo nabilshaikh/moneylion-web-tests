@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 // ***********************************************************
 // This example support/e2e.js is processed and
@@ -16,6 +17,7 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands';
+import 'allure-cypress';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

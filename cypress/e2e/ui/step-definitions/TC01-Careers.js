@@ -21,7 +21,7 @@ Given('new customer visits {string} page', (pageName) => {
 });
 
 When("user clicks on 'Careers' present on the page footer", () => {
-  home.getCareersLink().click();
+  home.getCareersLink().click({ force: true });
 });
 
 Then("user should be redirected to the MoneyLion's {string} page successfully", (pageName) => {
