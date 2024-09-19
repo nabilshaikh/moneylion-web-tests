@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-dupe-keys */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
@@ -19,12 +20,16 @@ module.exports = defineConfig({
     },
     setupNodeEvents,
     specPattern: 'cypress/e2e/**/*.{feature,cy.js}',
-    baseUrl: 'https://google.com',
+    baseUrl: 'https://www.moneylion.com',
     chromeWebSecurity: false,
-    pageLoadTimeout: 20000,
+    pageLoadTimeout: 100000,
     defaultCommandTimeout: 10000,
     video: false,
     viewportWidth: 1280,
     viewportHeight: 800,
+    retries: 1,
+    env: {
+      apiBaseUrl: 'https://reqres.in',
+    },
   },
 });
