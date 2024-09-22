@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable cypress/unsafe-to-chain-command */
 /* eslint-disable no-useless-escape */
@@ -28,12 +29,14 @@ Then("user should be redirected to the MoneyLion's {string} page successfully", 
   cy.url().should('contain', pageName);
 });
 
-Then('user should be able to see {string} blocks displayed next to {string} on {string}', (locationNames, locationTitle) => {
-  careers.getHeadquarterLocationBlock().should('have.length', 2);
-  careers.getFirstHeadquarterLocationBlockTitle().should('have.text', locationTitle);
-  careers.getSecondHeadquarterLocationBlock().should('have.length', 4);
+Then('user should be able to see {string} blocks displayed next to {string}', (locationNames, locationTitle) => {
+  careers.getWhereWeWorkLocationBlockGroup().children().should('have.length', 2); // two length i.e, first block (Our Team) and second block (4 location names)
+  careers.getWhereWeWorkLocationFirstBlock().should('have.text', locationTitle); // first block title 'Where we work'
+  careers.getWhereWeWorkLocationSecondBlock().should('have.length', 4); // second block contains 4 locations - NY, Sioux falls, Kuala Lumpur & around the globe
   const locationArray = locationNames.split(',');
   locationArray.forEach((locationName, locationIndex) => {
-    careers.getSecondHeadquarterLocationBlock().eq(locationIndex).should('have.text', locationName.trim());
+    careers.getWhereWeWorkLocationSecondBlock().eq(locationIndex).then((elementLocation) => {
+      expect(elementLocation.text().trim()).to.eq(locationName.trim()); // verifying 4 location names on second block (i.e right block)
+    });
   });
 });

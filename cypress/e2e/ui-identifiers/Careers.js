@@ -1,28 +1,27 @@
 /* eslint-disable class-methods-use-this */
 class Careers {
-  getHeadquarterLocationBlock() {
-    return cy.get('#OurTeamWhereWeWork > .wp-block-group__inner-container')
-      .find('.wp-block-group__inner-container');
+  getWhereWeWorkLocationBlockContainer() {
+    return cy.get('#OurTeamWhereWeWork');
   }
 
-  getFirstHeadquarterLocationBlock() {
-    return cy.get('#OurTeamWhereWeWork > .wp-block-group__inner-container')
-      .find('.wp-block-group__inner-container')
+  getWhereWeWorkLocationBlockGroup() {
+    return this.getWhereWeWorkLocationBlockContainer()
+      .find('.wp-block-columns')
       .first();
   }
 
-  getFirstHeadquarterLocationBlockTitle() {
-    return cy.get('#OurTeamWhereWeWork > .wp-block-group__inner-container')
-      .find('.wp-block-group__inner-container')
+  getWhereWeWorkLocationFirstBlock() {
+    return this.getWhereWeWorkLocationBlockGroup()
+      .children()
       .first()
       .find('.wp-block-heading');
   }
 
-  getSecondHeadquarterLocationBlock() {
-    return cy.get('#OurTeamWhereWeWork > .wp-block-group__inner-container')
-      .find('.wp-block-group__inner-container')
+  getWhereWeWorkLocationSecondBlock() {
+    return this.getWhereWeWorkLocationBlockGroup()
+      .children()
       .last()
-      .find('.wp-element-caption');
+      .find('.wp-block-column');
   }
 }
 
